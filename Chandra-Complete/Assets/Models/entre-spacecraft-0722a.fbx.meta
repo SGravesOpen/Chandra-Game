@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 72f2b9f0ec39bb04f849b525149876ef
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Camera.001
+    100004: entire_spacecraft
+    100006: //RootNode
+    100008: Light
+    100010: Light.001
+    100012: mirrors_objs
+    400000: Camera
+    400002: Camera.001
+    400004: entire_spacecraft
+    400006: //RootNode
+    400008: Light
+    400010: Light.001
+    400012: mirrors_objs
+    2000000: Camera
+    2100000: AlumSG.003
+    2100002: silv_baseSG.003
+    2100004: GREY_DARKERSG.003
+    2100006: whiteSG.003
+    2100008: silv_base4SG.003
+    2100010: silv_base_upf3_4SG.003
+    2100012: lambert6SG.003
+    2100014: silv_to_GOLD_base_bus_sides1SG.003
+    2100016: silv_base5SG.003
+    2100018: silv_base6SG.003
+    2100020: silv_base2SG.003
+    2100022: SSM_SG.003
+    2100024: silv_base7_NEWfoilSG.003
+    2100026: bluish_mirrorSG.003
+    2100028: light_shield_texSG.003
+    2100030: gold_baseSG.003
+    2100032: engineSG.003
+    2100034: GREY_DARKESTSG.003
+    2100036: berylliumSG.003
+    2100038: GREY1_almost_whiteSG.003
+    2100040: bluish_mirror_inner_lid1SG.003
+    2100042: rad_stripes2.003
+    2100044: silv_base3SG.003
+    2100046: silv_base_back_cam1SG.003
+    2100048: black_rubber1.003
+    2100050: brass2.003
+    2100052: sa_back.003
+    2100054: graphite_panel_SG.003
+    2100056: initialShadingGroup.003
+    2100058: lambert4SG.003
+    2100060: bluish_mirror_inner_lidSG.003
+    2100062: mia_material_x1SG.003
+    2100064: mia_material_x1_frontsSG.003
+    2300000: entire_spacecraft
+    2300002: mirrors_objs
+    3300000: entire_spacecraft
+    3300002: mirrors_objs
+    4300000: entire_spacecraft
+    4300002: mirrors_objs
+    10800000: Light
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

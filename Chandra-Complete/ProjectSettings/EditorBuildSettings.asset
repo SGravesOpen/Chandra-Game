@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Orbiting Scence/SpaceIntro.unity
+    guid: 9316b18a6cd5e774c95365771e6d69bf
+  - enabled: 1
+    path: Assets/Scenes/Pixel Menu.unity
+    guid: 281bf130ebff34fc799c0e50d02f0288
+  - enabled: 1
+    path: Assets/Scenes/TourScene.unity
+    guid: d9fd28f2f24b17c448f5ed58a9953e94
+  - enabled: 1
+    path: Assets/Scenes/Photon Shooter.unity
+    guid: 5567cb9984a9c4af28eca00349340893
+  - enabled: 1
+    path: Assets/Scenes/Orbiting Scence/Orbit Game Menu.unity
+    guid: fe265cc52c1c24c4d986bc3c9ad0c4c0
+  - enabled: 1
+    path: Assets/Scenes/Orbiting Scence/Orbit Menu.unity
+    guid: 01ac614494aa642cd99c45bfd29b5527
+  - enabled: 1
+    path: Assets/Scenes/Orbiting Scence/Orbit Inst.unity
+    guid: b36cb4a31e50c48cf91425338b0bd4a7
+  - enabled: 1
+    path: Assets/Scenes/Orbiting Scence/Orbit.unity
+    guid: 674fd7aeec7a04f099b151bd2f995262
+  - enabled: 1
+    path: Assets/Scenes/Pixel Cas A.unity
+    guid: b7982b350575442b6b11e4dbbfb2c8e4
+  - enabled: 1
+    path: Assets/Scenes/Earth.unity
+    guid: 28df967769c004f049db2f2062c1b487
+  - enabled: 1
+    path: Assets/Scenes/Office.unity
+    guid: 915a768650025f64c87639409b905183
+  m_configObjects: {}
