@@ -90,6 +90,7 @@ namespace Oculus.Platform
       AssetFile_Status                                    = 0x02D32F60,
       AssetFile_StatusById                                = 0x5D955D38,
       AssetFile_StatusByName                              = 0x41CFDA50,
+      CloudStorage2_GetUserDirectoryPath                  = 0x76A42EEE,
       CloudStorage_Delete                                 = 0x28DA456D,
       CloudStorage_GetNextCloudStorageMetadataArrayPage   = 0x5C07A2EF,
       CloudStorage_Load                                   = 0x40846B41,
@@ -139,6 +140,8 @@ namespace Oculus.Platform
       Notification_GetRoomInvites                         = 0x6F916B92,
       Notification_MarkAsRead                             = 0x717259E3,
       Party_GetCurrent                                    = 0x47933760,
+      RichPresence_Clear                                  = 0x57B752B3,
+      RichPresence_Set                                    = 0x3C147509,
       Room_CreateAndJoinPrivate                           = 0x75D6E377,
       Room_CreateAndJoinPrivate2                          = 0x5A3A6243,
       Room_Get                                            = 0x659A8FB8,
@@ -215,17 +218,21 @@ namespace Oculus.Platform
       /// microseconds or indicates that there was a timeout.
       Notification_Networking_PingResult = 0x51153012,
 
+      /// Indicates that party has been updated
+      Notification_Party_PartyUpdate = 0x1D118AB2,
+
       /// Indicates that the user has accepted an invitation, for example in Oculus
       /// Home. Use Message.GetString() to extract the ID of the room that the user
       /// has been inivted to as a string. Then call ovrID_FromString() to parse it
       /// into an ovrID.
       ///
-      /// Note that you must call Room.Join() if you want to actually join the room.
+      /// Note that you must call Rooms.Join() if you want to actually join the room.
       Notification_Room_InviteAccepted = 0x6D1071B1,
 
       /// Handle this to notify the user when they've received an invitation to join
       /// a room in your game. You can use this in lieu of, or in addition to,
-      /// polling for room invitations via Notification.GetRoomInviteNotifications().
+      /// polling for room invitations via
+      /// Notifications.GetRoomInviteNotifications().
       Notification_Room_InviteReceived = 0x6A499D54,
 
       /// Indicates that the current room has been updated. Use Message.GetRoom() to
@@ -312,6 +319,7 @@ namespace Oculus.Platform
     public virtual OrgScopedID GetOrgScopedID() { return null; }
     public virtual Party GetParty() { return null; }
     public virtual PartyID GetPartyID() { return null; }
+    public virtual PartyUpdateNotification GetPartyUpdateNotification() { return null; }
     public virtual PidList GetPidList() { return null; }
     public virtual ProductList GetProductList() { return null; }
     public virtual Purchase GetPurchase() { return null; }
@@ -440,6 +448,8 @@ namespace Oculus.Platform
         case Message.MessageType.Matchmaking_ReportResultInsecure:
         case Message.MessageType.Matchmaking_StartMatch:
         case Message.MessageType.Notification_MarkAsRead:
+        case Message.MessageType.RichPresence_Clear:
+        case Message.MessageType.RichPresence_Set:
         case Message.MessageType.Room_LaunchInvitableUserFlow:
         case Message.MessageType.Room_UpdateOwner:
         case Message.MessageType.User_LaunchProfile:
@@ -499,6 +509,10 @@ namespace Oculus.Platform
 
         case Message.MessageType.Party_GetCurrent:
           message = new MessageWithPartyUnderCurrentParty(messageHandle);
+          break;
+
+        case Message.MessageType.Notification_Party_PartyUpdate:
+          message = new MessageWithPartyUpdateNotification(messageHandle);
           break;
 
         case Message.MessageType.ApplicationLifecycle_GetRegisteredPIDs:
@@ -570,6 +584,7 @@ namespace Oculus.Platform
 
         case Message.MessageType.ApplicationLifecycle_GetSessionKey:
         case Message.MessageType.Application_LaunchOtherApp:
+        case Message.MessageType.CloudStorage2_GetUserDirectoryPath:
         case Message.MessageType.Notification_ApplicationLifecycle_LaunchIntentChanged:
         case Message.MessageType.Notification_Room_InviteAccepted:
         case Message.MessageType.User_GetAccessToken:
@@ -1120,6 +1135,18 @@ namespace Oculus.Platform
       var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
       var obj = CAPI.ovr_Message_GetPartyID(msg);
       return new PartyID(obj);
+    }
+
+  }
+  public class MessageWithPartyUpdateNotification : Message<PartyUpdateNotification>
+  {
+    public MessageWithPartyUpdateNotification(IntPtr c_message) : base(c_message) { }
+    public override PartyUpdateNotification GetPartyUpdateNotification() { return Data; }
+    protected override PartyUpdateNotification GetDataFromMessage(IntPtr c_message)
+    {
+      var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
+      var obj = CAPI.ovr_Message_GetPartyUpdateNotification(msg);
+      return new PartyUpdateNotification(obj);
     }
 
   }
