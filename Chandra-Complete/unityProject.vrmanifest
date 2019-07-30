@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.backup.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\karcand\\Documents\\GitHub\\Chandra-Game\\Chandra-Complete\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "BackUp [Testing]"
+        }
+      }
+    }
+  ]
+}
