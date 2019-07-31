@@ -73,8 +73,8 @@ public class PlayerEvents : MonoBehaviour
 
         if(!OVRInput.IsControllerConnected(OVRInput.Controller.RTouch) && 
            !OVRInput.IsControllerConnected(OVRInput.Controller.RTouch))
-            controllerCheck = OVRInput.Controller.TouchPad;
-
+            //controllerCheck = OVRInput.Controller.Active;
+            print("no controller found");
         //Update
         m_Controller = UpdateSource(controllerCheck, m_Controller);
 
@@ -91,13 +91,13 @@ public class PlayerEvents : MonoBehaviour
     private void Input()
     {
     
-        if(OVRInput.GetDown(OVRInput.Button.PrimaryTouchPad))
+        if(OVRInput.GetDown(OVRInput.Button.Left))
         {
             if(OnTouchPadDown != null)
                 OnTouchPadDown();
 
         }
-        if(OVRInput.GetUp(OVRInput.Button.PrimaryTouchPad))
+        if(OVRInput.GetUp(OVRInput.Button.Left))
         {
             if(OnTouchPadUp != null)
                 OnTouchPadUp();
@@ -117,7 +117,7 @@ public class PlayerEvents : MonoBehaviour
 
         //If no controller object set to head
         if(controllerObject == null)
-            controllerObject = m_HeadAnchor;
+            controllerObject = m_LeftAnchor;
         //Send out event
         if(OnControllerSource != null)
             OnControllerSource(check, controllerObject);
