@@ -16,7 +16,7 @@ public class OculusNativeInput : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-       if(OVRInput.GetDown(OVRInput.Button.One))          // if UI pointer should be active
+       if(OVRInput.GetDown(OVRInput.Button.Three))          // if UI pointer should be active
         {
             //Debug.Log("activated Pointer!");
 
@@ -30,7 +30,7 @@ public class OculusNativeInput : MonoBehaviour
             //
         }
 
-       if(OVRInput.GetDown(OVRInput.Button.Two))            // if the menu should currently be active
+       if(OVRInput.GetDown(OVRInput.Button.Four))            // if the menu should currently be active
         {
             activated = !activated; // switching the state of the bool
         }

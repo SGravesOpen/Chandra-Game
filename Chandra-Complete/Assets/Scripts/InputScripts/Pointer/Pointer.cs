@@ -8,7 +8,7 @@ public class Pointer : MonoBehaviour
 
     public float m_DefaultLength = 5.0f;
     public GameObject m_Dot;
-    public VRInputModule m_InputModule;
+    public OVRInputMod m_InputModule;
     
     private LineRenderer m_LineRenderer = null;
 

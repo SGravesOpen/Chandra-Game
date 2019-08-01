@@ -1,68 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR;
 using UnityEngine.EventSystems;
 
-/* refer to youtube video for deeper understanding / better explanation.
- * used for pointer interaction
- */ 
-public class VRInputModule : BaseInputModule
+//NOT APART OF OVR IMPORT
+public class OVRInputMod : BaseInputModule
 {
 
     public Camera m_Camera;
-    public SteamVR_Input_Sources m_TargetSource;
-    public SteamVR_Action_Boolean m_ClickAction;
-
     private GameObject m_CurrentObject = null;
     private PointerEventData m_Data = null;
     private EventSystem es;
 
-    protected override void Awake()
+    // Start is called before the first frame update
+    protected void Awake()
     {
-       // Debug.Log("VRInput Woke up");
         base.Awake();
         es = gameObject.GetComponent<EventSystem>();
         m_Data = new PointerEventData(es);
-    }
-
-    public override void Process()
-    {
-        // Reset data, set Camera
-
-        m_Data.Reset();
-        m_Data.position = new Vector2(m_Camera.pixelWidth / 2, m_Camera.pixelHeight / 2);
-        
-        // raycast
-        eventSystem.RaycastAll(m_Data, m_RaycastResultCache);
-        m_Data.pointerCurrentRaycast = FindFirstRaycast(m_RaycastResultCache);
-        m_CurrentObject = m_Data.pointerCurrentRaycast.gameObject;
-
-        // Clear
-        m_RaycastResultCache.Clear();
-
-        // Hover
-        HandlePointerExitAndEnter(m_Data, m_CurrentObject);
-        // Press
-        //Debug.Log("In the process before we check buttons state: " + OVRInput.GetDown(OVRInput.RawButton.X));
-        //Debug.Log("In the process before we check buttons state: " + OVRInput.GetDown(OVRInput.Button.One));
-        if (m_ClickAction.GetStateDown(m_TargetSource))
-        {
-         
-            ProcessPress(m_Data);
-        }
-        // Release
-        if(m_ClickAction.GetStateUp(m_TargetSource))
-        {
-           // Debug.Log("Button state up: " + OVRInput.GetUp(OVRInput.Button.Two));
-            ProcessRelease(m_Data);
-        }
     }
 
     public PointerEventData GetData()
     {
        //Debug.Log("We got the data from the input module");
         return m_Data;
+    }
+    
+    public override void Process()
+    {   
+        //Resey data, set Camera
+        m_Data.Reset();
+        m_Data.position = new Vector2(m_Camera.pixelWidth / 2, m_Camera.pixelHeight / 2);
+        
+        //raycast 
+        es.RaycastAll(m_Data, m_RaycastResultCache);
+        m_Data.pointerCurrentRaycast = FindFirstRaycast(m_RaycastResultCache);
+        m_CurrentObject = m_Data.pointerCurrentRaycast.gameObject;
+
+
+        //clear
+        m_RaycastResultCache.Clear();
+
+        //Hover
+        HandlePointerExitAndEnter(m_Data, m_CurrentObject);
+        //press
+        if(OVRInput.GetDown(OVRInput.Button.Three))
+        {
+            ProcessPress(m_Data);
+        }
+
+        //release
+        if(OVRInput.GetUp(OVRInput.Button.Three))
+        {
+            ProcessRelease(m_Data);
+        }
     }
 
     private void ProcessPress(PointerEventData data)
@@ -83,6 +74,7 @@ public class VRInputModule : BaseInputModule
         data.rawPointerPress = m_CurrentObject;
     }
 
+    // Update is called once per frame
     private void ProcessRelease(PointerEventData data)
     {
         // execute pointer up
@@ -106,6 +98,5 @@ public class VRInputModule : BaseInputModule
         data.rawPointerPress = null;
 
     }
-
 
 }
